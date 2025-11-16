@@ -1,0 +1,15 @@
+./objects/main.o: main.c \
+  I:\Keil5\keil5_packs\Keil\LPC1100_DFP\1.4.1\Device\Include\LPC11xx\LPC11xx.h \
+  I:\Keil5\keil5_packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\core_cm0.h \
+  I:\Keil5\keil5_mdk\ARM\ARMCLANG\include\stdint.h \
+  I:\Keil5\keil5_packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_version.h \
+  I:\Keil5\keil5_packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_compiler.h \
+  I:\Keil5\keil5_packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\cmsis_armclang.h \
+  I:\Keil5\keil5_mdk\ARM\ARMCLANG\include\arm_acle.h \
+  I:\Keil5\keil5_packs\ARM\CMSIS\6.1.0\CMSIS\Core\Include\m-profile\cmsis_armclang_m.h \
+  I:\Keil5\keil5_packs\Keil\LPC1100_DFP\1.4.1\Device\Include\LPC11xx\system_LPC11xx.h \
+  USER\Delay.h Drivers_Config\driver_config.h \
+  Drivers_Config\target_config.h Drivers\timer32.h Drivers\timer16.h \
+  Drivers\gpio.h USER\LED.h USER\Motor.h Drivers\ssp.h \
+  I:\Keil5\keil5_mdk\ARM\ARMCLANG\include\stdio.h USER\OLED.h \
+  Drivers\uart.h Drivers\i2c.h

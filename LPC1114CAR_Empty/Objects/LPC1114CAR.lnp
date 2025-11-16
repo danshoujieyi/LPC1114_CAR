@@ -1,0 +1,28 @@
+--cpu Cortex-M0
+".\objects\main.o"
+".\objects\adc.o"
+".\objects\can.o"
+".\objects\clkconfig.o"
+".\objects\crp.o"
+".\objects\debug_printf.o"
+".\objects\gpio.o"
+".\objects\i2c.o"
+".\objects\i2cslave.o"
+".\objects\lpc_swu.o"
+".\objects\rs485.o"
+".\objects\small_gpio.o"
+".\objects\ssp.o"
+".\objects\timer16.o"
+".\objects\timer32.o"
+".\objects\uart.o"
+".\objects\wdt.o"
+".\objects\delay.o"
+".\objects\led.o"
+".\objects\motor.o"
+".\objects\oled.o"
+".\objects\startup_lpc11xx.o"
+".\objects\system_lpc11xx.o"
+--library_type=microlib --strict --scatter ".\Objects\LPC1114CAR.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\LPC1114CAR.map" -o .\Objects\LPC1114CAR.axf

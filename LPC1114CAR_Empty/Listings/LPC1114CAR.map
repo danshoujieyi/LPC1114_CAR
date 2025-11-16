@@ -1,0 +1,860 @@
+Component: Arm Compiler for Embedded 6.21 Tool: armlink [5ec1fa00]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(.text.main) refers to system_lpc11xx.o(.text.SystemInit) for SystemInit
+    main.o(.text.main) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    main.o(.text.main) refers to led.o(.text.LED_Init) for LED_Init
+    main.o(.text.main) refers to uart.o(.text.UARTInit) for UARTInit
+    main.o(.text.main) refers to oled.o(.text.OLED_Init) for OLED_Init
+    main.o(.text.main) refers to oled.o(.text.OLED_Clear) for OLED_Clear
+    main.o(.text.main) refers to oled.o(.text.OLED_ShowString) for OLED_ShowString
+    main.o(.text.main) refers to motor.o(.text.motor_pwm_init) for motor_pwm_init
+    main.o(.text.main) refers to motor.o(.text.right_rear_motor) for right_rear_motor
+    main.o(.text.main) refers to motor.o(.text.left_rear_motor) for left_rear_motor
+    main.o(.text.main) refers to motor.o(.text.left_front_motor) for left_front_motor
+    main.o(.text.main) refers to motor.o(.text.right_front_motor) for right_front_motor
+    main.o(.text.main) refers to puts.o(i.puts) for puts
+    main.o(.text.main) refers to delay.o(.text.delay_ms) for delay_ms
+    main.o(.text.main) refers to led.o(.text.LED_On) for LED_On
+    main.o(.text.main) refers to led.o(.text.LED_Off) for LED_Off
+    main.o(.text.main) refers to led.o(.text.RightRearLight_On) for RightRearLight_On
+    main.o(.text.main) refers to led.o(.text.RightRearLight_Off) for RightRearLight_Off
+    main.o(.text.main) refers to led.o(.text.LeftRearLight_On) for LeftRearLight_On
+    main.o(.text.main) refers to led.o(.text.LeftRearLight_Off) for LeftRearLight_Off
+    main.o(.text.main) refers to led.o(.text.RightFrontLight_On) for RightFrontLight_On
+    main.o(.text.main) refers to led.o(.text.RightFrontLight_Off) for RightFrontLight_Off
+    main.o(.text.main) refers to led.o(.text.LeftFrontLight_On) for LeftFrontLight_On
+    main.o(.text.main) refers to led.o(.text.LeftFrontLight_Off) for LeftFrontLight_Off
+    main.o(.text.main) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOInit) refers to gpio.o(.text.GPIOInit) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOSetInterrupt) refers to gpio.o(.text.GPIOSetInterrupt) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOIntEnable) refers to gpio.o(.text.GPIOIntEnable) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOIntDisable) refers to gpio.o(.text.GPIOIntDisable) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOIntStatus) refers to gpio.o(.text.GPIOIntStatus) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOIntClear) refers to gpio.o(.text.GPIOIntClear) for [Anonymous Symbol]
+    gpio.o(.text.GPIOSetValue) refers to gpio.o(.rodata.cst16) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOSetValue) refers to gpio.o(.text.GPIOSetValue) for [Anonymous Symbol]
+    gpio.o(.text.GPIOSetDir) refers to gpio.o(.rodata.cst16) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOSetDir) refers to gpio.o(.text.GPIOSetDir) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.GPIOGetValue) refers to gpio.o(.text.GPIOGetValue) for [Anonymous Symbol]
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.timeout) for timeout
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.RdIndex) for RdIndex
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.I2CSlaveBuffer) for I2CSlaveBuffer
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.WrIndex) for WrIndex
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    i2c.o(.text.I2C_IRQHandler) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    i2c.o(.ARM.exidx.text.I2C_IRQHandler) refers to i2c.o(.text.I2C_IRQHandler) for [Anonymous Symbol]
+    i2c.o(.text.I2CStart) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    i2c.o(.ARM.exidx.text.I2CStart) refers to i2c.o(.text.I2CStart) for [Anonymous Symbol]
+    i2c.o(.ARM.exidx.text.I2CStop) refers to i2c.o(.text.I2CStop) for [Anonymous Symbol]
+    i2c.o(.ARM.exidx.text.I2CInit) refers to i2c.o(.text.I2CInit) for [Anonymous Symbol]
+    i2c.o(.text.I2CEngine) refers to i2c.o(.bss.RdIndex) for RdIndex
+    i2c.o(.text.I2CEngine) refers to i2c.o(.bss.WrIndex) for WrIndex
+    i2c.o(.text.I2CEngine) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    i2c.o(.text.I2CEngine) refers to i2c.o(.bss.timeout) for timeout
+    i2c.o(.ARM.exidx.text.I2CEngine) refers to i2c.o(.text.I2CEngine) for [Anonymous Symbol]
+    timer16.o(.text.delayMs) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    timer16.o(.text.delayMs) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    timer16.o(.ARM.exidx.text.delayMs) refers to timer16.o(.text.delayMs) for [Anonymous Symbol]
+    timer16.o(.text.TIMER16_0_IRQHandler) refers to timer16.o(.bss.timer16_0_counter) for timer16_0_counter
+    timer16.o(.text.TIMER16_0_IRQHandler) refers to timer16.o(.bss.timer16_0_capture) for timer16_0_capture
+    timer16.o(.ARM.exidx.text.TIMER16_0_IRQHandler) refers to timer16.o(.text.TIMER16_0_IRQHandler) for [Anonymous Symbol]
+    timer16.o(.text.TIMER16_1_IRQHandler) refers to timer16.o(.bss.timer16_1_counter) for timer16_1_counter
+    timer16.o(.text.TIMER16_1_IRQHandler) refers to timer16.o(.bss.timer16_1_capture) for timer16_1_capture
+    timer16.o(.ARM.exidx.text.TIMER16_1_IRQHandler) refers to timer16.o(.text.TIMER16_1_IRQHandler) for [Anonymous Symbol]
+    timer16.o(.ARM.exidx.text.enable_timer16) refers to timer16.o(.text.enable_timer16) for [Anonymous Symbol]
+    timer16.o(.ARM.exidx.text.disable_timer16) refers to timer16.o(.text.disable_timer16) for [Anonymous Symbol]
+    timer16.o(.ARM.exidx.text.reset_timer16) refers to timer16.o(.text.reset_timer16) for [Anonymous Symbol]
+    timer16.o(.text.init_timer16) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    timer16.o(.text.init_timer16) refers to timer16.o(.bss.timer16_1_counter) for timer16_1_counter
+    timer16.o(.text.init_timer16) refers to timer16.o(.bss.timer16_1_capture) for timer16_1_capture
+    timer16.o(.text.init_timer16) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    timer16.o(.text.init_timer16) refers to timer16.o(.bss.timer16_0_counter) for timer16_0_counter
+    timer16.o(.text.init_timer16) refers to timer16.o(.bss.timer16_0_capture) for timer16_0_capture
+    timer16.o(.ARM.exidx.text.init_timer16) refers to timer16.o(.text.init_timer16) for [Anonymous Symbol]
+    timer16.o(.text.init_timer16PWM) refers to timer16.o(.bss.timer16_0_period) for timer16_0_period
+    timer16.o(.text.init_timer16PWM) refers to timer16.o(.bss.timer16_1_period) for timer16_1_period
+    timer16.o(.ARM.exidx.text.init_timer16PWM) refers to timer16.o(.text.init_timer16PWM) for [Anonymous Symbol]
+    timer16.o(.ARM.exidx.text.setMatch_timer16PWM) refers to timer16.o(.text.setMatch_timer16PWM) for [Anonymous Symbol]
+    timer32.o(.text.delay32Ms) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    timer32.o(.text.delay32Ms) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    timer32.o(.ARM.exidx.text.delay32Ms) refers to timer32.o(.text.delay32Ms) for [Anonymous Symbol]
+    timer32.o(.ARM.exidx.text.enable_timer32) refers to timer32.o(.text.enable_timer32) for [Anonymous Symbol]
+    timer32.o(.ARM.exidx.text.disable_timer32) refers to timer32.o(.text.disable_timer32) for [Anonymous Symbol]
+    timer32.o(.ARM.exidx.text.reset_timer32) refers to timer32.o(.text.reset_timer32) for [Anonymous Symbol]
+    timer32.o(.ARM.exidx.text.init_timer32) refers to timer32.o(.text.init_timer32) for [Anonymous Symbol]
+    timer32.o(.text.init_timer32PWM) refers to timer32.o(.bss.timer32_0_period) for timer32_0_period
+    timer32.o(.text.init_timer32PWM) refers to timer32.o(.bss.timer32_1_period) for timer32_1_period
+    timer32.o(.ARM.exidx.text.init_timer32PWM) refers to timer32.o(.text.init_timer32PWM) for [Anonymous Symbol]
+    timer32.o(.ARM.exidx.text.setMatch_timer32PWM) refers to timer32.o(.text.setMatch_timer32PWM) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.ModemInit) refers to uart.o(.text.ModemInit) for [Anonymous Symbol]
+    uart.o(.text.UARTInit) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    uart.o(.text.UARTInit) refers to uart.o(.data.UARTTxEmpty) for UARTTxEmpty
+    uart.o(.text.UARTInit) refers to uart.o(.bss.UARTCount) for UARTCount
+    uart.o(.text.UARTInit) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    uart.o(.ARM.exidx.text.UARTInit) refers to uart.o(.text.UARTInit) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.UARTSend) refers to uart.o(.text.UARTSend) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.UART_Send_Byte) refers to uart.o(.text.UART_Send_Byte) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.fputc) refers to uart.o(.text.fputc) for [Anonymous Symbol]
+    delay.o(.text.SysTick_Handler) refers to delay.o(.bss.sys_tick_count) for [Anonymous Symbol]
+    delay.o(.ARM.exidx.text.SysTick_Handler) refers to delay.o(.text.SysTick_Handler) for [Anonymous Symbol]
+    delay.o(.text.delay_ms) refers to delay.o(.bss.sys_tick_count) for [Anonymous Symbol]
+    delay.o(.ARM.exidx.text.delay_ms) refers to delay.o(.text.delay_ms) for [Anonymous Symbol]
+    led.o(.text.LED_Init) refers to gpio.o(.text.GPIOInit) for GPIOInit
+    led.o(.text.LED_Init) refers to gpio.o(.text.GPIOSetDir) for GPIOSetDir
+    led.o(.text.LED_Init) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LED_Init) refers to led.o(.text.LED_Init) for [Anonymous Symbol]
+    led.o(.text.LED_Off) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LED_Off) refers to led.o(.text.LED_Off) for [Anonymous Symbol]
+    led.o(.text.RightRearLight_Off) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.RightRearLight_Off) refers to led.o(.text.RightRearLight_Off) for [Anonymous Symbol]
+    led.o(.text.LeftRearLight_Off) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LeftRearLight_Off) refers to led.o(.text.LeftRearLight_Off) for [Anonymous Symbol]
+    led.o(.text.RightFrontLight_Off) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.RightFrontLight_Off) refers to led.o(.text.RightFrontLight_Off) for [Anonymous Symbol]
+    led.o(.text.LeftFrontLight_Off) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LeftFrontLight_Off) refers to led.o(.text.LeftFrontLight_Off) for [Anonymous Symbol]
+    led.o(.text.LED_On) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LED_On) refers to led.o(.text.LED_On) for [Anonymous Symbol]
+    led.o(.text.RightRearLight_On) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.RightRearLight_On) refers to led.o(.text.RightRearLight_On) for [Anonymous Symbol]
+    led.o(.text.LeftRearLight_On) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LeftRearLight_On) refers to led.o(.text.LeftRearLight_On) for [Anonymous Symbol]
+    led.o(.text.RightFrontLight_On) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.RightFrontLight_On) refers to led.o(.text.RightFrontLight_On) for [Anonymous Symbol]
+    led.o(.text.LeftFrontLight_On) refers to gpio.o(.text.GPIOSetValue) for GPIOSetValue
+    led.o(.ARM.exidx.text.LeftFrontLight_On) refers to led.o(.text.LeftFrontLight_On) for [Anonymous Symbol]
+    motor.o(.text.motor_pwm_init) refers to timer16.o(.text.init_timer16PWM) for init_timer16PWM
+    motor.o(.text.motor_pwm_init) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    motor.o(.text.motor_pwm_init) refers to timer32.o(.text.init_timer32PWM) for init_timer32PWM
+    motor.o(.text.motor_pwm_init) refers to timer16.o(.text.enable_timer16) for enable_timer16
+    motor.o(.text.motor_pwm_init) refers to timer32.o(.text.enable_timer32) for enable_timer32
+    motor.o(.text.motor_pwm_init) refers to timer16.o(.text.setMatch_timer16PWM) for setMatch_timer16PWM
+    motor.o(.text.motor_pwm_init) refers to timer32.o(.text.setMatch_timer32PWM) for setMatch_timer32PWM
+    motor.o(.text.motor_pwm_init) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    motor.o(.ARM.exidx.text.motor_pwm_init) refers to motor.o(.text.motor_pwm_init) for [Anonymous Symbol]
+    motor.o(.text.right_rear_motor) refers to timer16.o(.text.setMatch_timer16PWM) for setMatch_timer16PWM
+    motor.o(.ARM.exidx.text.right_rear_motor) refers to motor.o(.text.right_rear_motor) for [Anonymous Symbol]
+    motor.o(.text.left_rear_motor) refers to timer16.o(.text.setMatch_timer16PWM) for setMatch_timer16PWM
+    motor.o(.ARM.exidx.text.left_rear_motor) refers to motor.o(.text.left_rear_motor) for [Anonymous Symbol]
+    motor.o(.text.left_front_motor) refers to timer32.o(.text.setMatch_timer32PWM) for setMatch_timer32PWM
+    motor.o(.ARM.exidx.text.left_front_motor) refers to motor.o(.text.left_front_motor) for [Anonymous Symbol]
+    motor.o(.text.right_front_motor) refers to timer32.o(.text.setMatch_timer32PWM) for setMatch_timer32PWM
+    motor.o(.ARM.exidx.text.right_front_motor) refers to motor.o(.text.right_front_motor) for [Anonymous Symbol]
+    oled.o(.text.OLED_WriteCommand) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_WriteCommand) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_WriteCommand) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_WriteCommand) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_WriteCommand) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.ARM.exidx.text.OLED_WriteCommand) refers to oled.o(.text.OLED_WriteCommand) for [Anonymous Symbol]
+    oled.o(.text.OLED_WriteData) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_WriteData) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_WriteData) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_WriteData) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_WriteData) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.ARM.exidx.text.OLED_WriteData) refers to oled.o(.text.OLED_WriteData) for [Anonymous Symbol]
+    oled.o(.text.OLED_SetCursor) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_SetCursor) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_SetCursor) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_SetCursor) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_SetCursor) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.ARM.exidx.text.OLED_SetCursor) refers to oled.o(.text.OLED_SetCursor) for [Anonymous Symbol]
+    oled.o(.text.OLED_Clear) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_Clear) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_Clear) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_Clear) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_Clear) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.ARM.exidx.text.OLED_Clear) refers to oled.o(.text.OLED_Clear) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowChar) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_ShowChar) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_ShowChar) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_ShowChar) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_ShowChar) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.text.OLED_ShowChar) refers to oled.o(.rodata.OLED_F8x16) for OLED_F8x16
+    oled.o(.ARM.exidx.text.OLED_ShowChar) refers to oled.o(.text.OLED_ShowChar) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowString) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    oled.o(.ARM.exidx.text.OLED_ShowString) refers to oled.o(.text.OLED_ShowString) for [Anonymous Symbol]
+    oled.o(.ARM.exidx.text.OLED_Pow) refers to oled.o(.text.OLED_Pow) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowNum) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    oled.o(.text.OLED_ShowNum) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    oled.o(.ARM.exidx.text.OLED_ShowNum) refers to oled.o(.text.OLED_ShowNum) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowSignedNum) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    oled.o(.text.OLED_ShowSignedNum) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    oled.o(.ARM.exidx.text.OLED_ShowSignedNum) refers to oled.o(.text.OLED_ShowSignedNum) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowHexNum) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    oled.o(.text.OLED_ShowHexNum) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    oled.o(.ARM.exidx.text.OLED_ShowHexNum) refers to oled.o(.text.OLED_ShowHexNum) for [Anonymous Symbol]
+    oled.o(.text.OLED_ShowBinNum) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    oled.o(.text.OLED_ShowBinNum) refers to oled.o(.text.OLED_ShowChar) for OLED_ShowChar
+    oled.o(.ARM.exidx.text.OLED_ShowBinNum) refers to oled.o(.text.OLED_ShowBinNum) for [Anonymous Symbol]
+    oled.o(.text.OLED_Init) refers to i2c.o(.text.I2CInit) for I2CInit
+    oled.o(.text.OLED_Init) refers to i2c.o(.text.I2CEngine) for I2CEngine
+    oled.o(.text.OLED_Init) refers to i2c.o(.bss.I2CMasterBuffer) for I2CMasterBuffer
+    oled.o(.text.OLED_Init) refers to i2c.o(.bss.I2CWriteLength) for I2CWriteLength
+    oled.o(.text.OLED_Init) refers to i2c.o(.bss.I2CReadLength) for I2CReadLength
+    oled.o(.text.OLED_Init) refers to i2c.o(.bss.I2CMasterState) for I2CMasterState
+    oled.o(.text.OLED_Init) refers to oled.o(.text.OLED_Clear) for OLED_Clear
+    oled.o(.ARM.exidx.text.OLED_Init) refers to oled.o(.text.OLED_Init) for [Anonymous Symbol]
+    startup_lpc11xx.o(RESET) refers to startup_lpc11xx.o(STACK) for __initial_sp
+    startup_lpc11xx.o(RESET) refers to startup_lpc11xx.o(.text) for Reset_Handler
+    startup_lpc11xx.o(RESET) refers to delay.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_lpc11xx.o(RESET) refers to i2c.o(.text.I2C_IRQHandler) for I2C_IRQHandler
+    startup_lpc11xx.o(RESET) refers to timer16.o(.text.TIMER16_0_IRQHandler) for TIMER16_0_IRQHandler
+    startup_lpc11xx.o(RESET) refers to timer16.o(.text.TIMER16_1_IRQHandler) for TIMER16_1_IRQHandler
+    startup_lpc11xx.o(.text) refers to system_lpc11xx.o(.text.SystemInit) for SystemInit
+    startup_lpc11xx.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    system_lpc11xx.o(.text.SystemCoreClockUpdate) refers to uidiv_div0.o(.text) for __aeabi_uidiv
+    system_lpc11xx.o(.text.SystemCoreClockUpdate) refers to system_lpc11xx.o(.data.SystemCoreClock) for SystemCoreClock
+    system_lpc11xx.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_lpc11xx.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
+    system_lpc11xx.o(.ARM.exidx.text.SystemInit) refers to system_lpc11xx.o(.text.SystemInit) for [Anonymous Symbol]
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    puts.o(i.puts) refers to uart.o(.text.fputc) for fputc
+    puts.o(i.puts) refers to stdout.o(.data) for __stdout
+    puts_e.o(.text) refers to uart.o(.text.fputc) for fputc
+    puts_e.o(.text) refers to stdout.o(.data) for __stdout
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_lpc11xx.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_lpc11xx.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(.text.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(.text.main) for main
+    idiv_div0.o(.text) refers to uidiv_div0.o(.text) for __aeabi_uidivmod
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing adc.o(.text), (0 bytes).
+    Removing can.o(.text), (0 bytes).
+    Removing clkconfig.o(.text), (0 bytes).
+    Removing crp.o(.text), (0 bytes).
+    Removing crp.o(.crp), (4 bytes).
+    Removing debug_printf.o(.text), (0 bytes).
+    Removing gpio.o(.text), (0 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOInit), (8 bytes).
+    Removing gpio.o(.text.GPIOSetInterrupt), (132 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOSetInterrupt), (8 bytes).
+    Removing gpio.o(.text.GPIOIntEnable), (60 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOIntEnable), (8 bytes).
+    Removing gpio.o(.text.GPIOIntDisable), (60 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOIntDisable), (8 bytes).
+    Removing gpio.o(.text.GPIOIntStatus), (60 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOIntStatus), (8 bytes).
+    Removing gpio.o(.text.GPIOIntClear), (60 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOIntClear), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOSetValue), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOSetDir), (8 bytes).
+    Removing gpio.o(.text.GPIOGetValue), (60 bytes).
+    Removing gpio.o(.ARM.exidx.text.GPIOGetValue), (8 bytes).
+    Removing i2c.o(.text), (0 bytes).
+    Removing i2c.o(.ARM.exidx.text.I2C_IRQHandler), (8 bytes).
+    Removing i2c.o(.text.I2CStart), (228 bytes).
+    Removing i2c.o(.ARM.exidx.text.I2CStart), (8 bytes).
+    Removing i2c.o(.text.I2CStop), (40 bytes).
+    Removing i2c.o(.ARM.exidx.text.I2CStop), (8 bytes).
+    Removing i2c.o(.ARM.exidx.text.I2CInit), (8 bytes).
+    Removing i2c.o(.ARM.exidx.text.I2CEngine), (8 bytes).
+    Removing i2c.o(.bss.I2CSlaveState), (4 bytes).
+    Removing i2c.o(.bss.I2CCount), (4 bytes).
+    Removing i2c.o(.bss.I2CMode), (4 bytes).
+    Removing i2cslave.o(.text), (0 bytes).
+    Removing lpc_swu.o(.text), (0 bytes).
+    Removing rs485.o(.text), (0 bytes).
+    Removing small_gpio.o(.text), (0 bytes).
+    Removing ssp.o(.text), (0 bytes).
+    Removing timer16.o(.text), (0 bytes).
+    Removing timer16.o(.text.delayMs), (160 bytes).
+    Removing timer16.o(.ARM.exidx.text.delayMs), (8 bytes).
+    Removing timer16.o(.ARM.exidx.text.TIMER16_0_IRQHandler), (8 bytes).
+    Removing timer16.o(.ARM.exidx.text.TIMER16_1_IRQHandler), (8 bytes).
+    Removing timer16.o(.ARM.exidx.text.enable_timer16), (8 bytes).
+    Removing timer16.o(.text.disable_timer16), (24 bytes).
+    Removing timer16.o(.ARM.exidx.text.disable_timer16), (8 bytes).
+    Removing timer16.o(.text.reset_timer16), (28 bytes).
+    Removing timer16.o(.ARM.exidx.text.reset_timer16), (8 bytes).
+    Removing timer16.o(.text.init_timer16), (260 bytes).
+    Removing timer16.o(.ARM.exidx.text.init_timer16), (8 bytes).
+    Removing timer16.o(.ARM.exidx.text.init_timer16PWM), (8 bytes).
+    Removing timer16.o(.ARM.exidx.text.setMatch_timer16PWM), (8 bytes).
+    Removing timer32.o(.text), (0 bytes).
+    Removing timer32.o(.text.delay32Ms), (176 bytes).
+    Removing timer32.o(.ARM.exidx.text.delay32Ms), (8 bytes).
+    Removing timer32.o(.ARM.exidx.text.enable_timer32), (8 bytes).
+    Removing timer32.o(.text.disable_timer32), (24 bytes).
+    Removing timer32.o(.ARM.exidx.text.disable_timer32), (8 bytes).
+    Removing timer32.o(.text.reset_timer32), (28 bytes).
+    Removing timer32.o(.ARM.exidx.text.reset_timer32), (8 bytes).
+    Removing timer32.o(.text.init_timer32), (156 bytes).
+    Removing timer32.o(.ARM.exidx.text.init_timer32), (8 bytes).
+    Removing timer32.o(.ARM.exidx.text.init_timer32PWM), (8 bytes).
+    Removing timer32.o(.ARM.exidx.text.setMatch_timer32PWM), (8 bytes).
+    Removing timer32.o(.bss.timer32_0_counter), (4 bytes).
+    Removing timer32.o(.bss.timer32_0_capture), (4 bytes).
+    Removing uart.o(.text), (0 bytes).
+    Removing uart.o(.text.ModemInit), (112 bytes).
+    Removing uart.o(.ARM.exidx.text.ModemInit), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.UARTInit), (8 bytes).
+    Removing uart.o(.text.UARTSend), (268 bytes).
+    Removing uart.o(.ARM.exidx.text.UARTSend), (8 bytes).
+    Removing uart.o(.text.UART_Send_Byte), (36 bytes).
+    Removing uart.o(.ARM.exidx.text.UART_Send_Byte), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.fputc), (8 bytes).
+    Removing uart.o(.bss.UARTStatus), (4 bytes).
+    Removing uart.o(.bss.UARTBuffer), (64 bytes).
+    Removing wdt.o(.text), (0 bytes).
+    Removing delay.o(.text), (0 bytes).
+    Removing delay.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
+    Removing delay.o(.ARM.exidx.text.delay_ms), (8 bytes).
+    Removing led.o(.text), (0 bytes).
+    Removing led.o(.ARM.exidx.text.LED_Init), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LED_Off), (8 bytes).
+    Removing led.o(.ARM.exidx.text.RightRearLight_Off), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LeftRearLight_Off), (8 bytes).
+    Removing led.o(.ARM.exidx.text.RightFrontLight_Off), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LeftFrontLight_Off), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LED_On), (8 bytes).
+    Removing led.o(.ARM.exidx.text.RightRearLight_On), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LeftRearLight_On), (8 bytes).
+    Removing led.o(.ARM.exidx.text.RightFrontLight_On), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LeftFrontLight_On), (8 bytes).
+    Removing motor.o(.text), (0 bytes).
+    Removing motor.o(.ARM.exidx.text.motor_pwm_init), (8 bytes).
+    Removing motor.o(.ARM.exidx.text.right_rear_motor), (8 bytes).
+    Removing motor.o(.ARM.exidx.text.left_rear_motor), (8 bytes).
+    Removing motor.o(.ARM.exidx.text.left_front_motor), (8 bytes).
+    Removing motor.o(.ARM.exidx.text.right_front_motor), (8 bytes).
+    Removing oled.o(.text), (0 bytes).
+    Removing oled.o(.text.OLED_WriteCommand), (76 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_WriteCommand), (8 bytes).
+    Removing oled.o(.text.OLED_WriteData), (80 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_WriteData), (8 bytes).
+    Removing oled.o(.text.OLED_SetCursor), (200 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_SetCursor), (8 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_Clear), (8 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowChar), (8 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowString), (8 bytes).
+    Removing oled.o(.text.OLED_Pow), (60 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_Pow), (8 bytes).
+    Removing oled.o(.text.OLED_ShowNum), (144 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowNum), (8 bytes).
+    Removing oled.o(.text.OLED_ShowSignedNum), (184 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowSignedNum), (8 bytes).
+    Removing oled.o(.text.OLED_ShowHexNum), (132 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowHexNum), (8 bytes).
+    Removing oled.o(.text.OLED_ShowBinNum), (132 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_ShowBinNum), (8 bytes).
+    Removing oled.o(.ARM.exidx.text.OLED_Init), (8 bytes).
+    Removing startup_lpc11xx.o(HEAP), (0 bytes).
+    Removing system_lpc11xx.o(.text), (0 bytes).
+    Removing system_lpc11xx.o(.text.SystemCoreClockUpdate), (188 bytes).
+    Removing system_lpc11xx.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
+    Removing system_lpc11xx.o(.ARM.exidx.text.SystemInit), (8 bytes).
+
+128 unused section(s) (total 3808 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdivfast.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdivfast_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv0.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/stdio/puts.c            0x00000000   Number         0  puts.o ABSOLUTE
+    ../clib/microlib/stdio/puts.c            0x00000000   Number         0  puts_e.o ABSOLUTE
+    ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    Delay.c                                  0x00000000   Number         0  delay.o ABSOLUTE
+    LED.c                                    0x00000000   Number         0  led.o ABSOLUTE
+    Motor.c                                  0x00000000   Number         0  motor.o ABSOLUTE
+    OLED.c                                   0x00000000   Number         0  oled.o ABSOLUTE
+    RTE/Device/LPC1114FBD48_302/startup_LPC11xx.s 0x00000000   Number         0  startup_lpc11xx.o ABSOLUTE
+    adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
+    can.c                                    0x00000000   Number         0  can.o ABSOLUTE
+    clkconfig.c                              0x00000000   Number         0  clkconfig.o ABSOLUTE
+    crp.c                                    0x00000000   Number         0  crp.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    debug_printf.c                           0x00000000   Number         0  debug_printf.o ABSOLUTE
+    gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    i2c.c                                    0x00000000   Number         0  i2c.o ABSOLUTE
+    i2cslave.c                               0x00000000   Number         0  i2cslave.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    lpc_swu.c                                0x00000000   Number         0  lpc_swu.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    rs485.c                                  0x00000000   Number         0  rs485.o ABSOLUTE
+    small_gpio.c                             0x00000000   Number         0  small_gpio.o ABSOLUTE
+    ssp.c                                    0x00000000   Number         0  ssp.o ABSOLUTE
+    system_LPC11xx.c                         0x00000000   Number         0  system_lpc11xx.o ABSOLUTE
+    timer16.c                                0x00000000   Number         0  timer16.o ABSOLUTE
+    timer32.c                                0x00000000   Number         0  timer32.o ABSOLUTE
+    uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
+    wdt.c                                    0x00000000   Number         0  wdt.o ABSOLUTE
+    RESET                                    0x00000000   Section      192  startup_lpc11xx.o(RESET)
+    .ARM.Collect$$$$00000000                 0x000000c0   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x000000c0   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x000000c4   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x000000c8   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x000000c8   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x000000c8   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x000000d0   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .ARM.Collect$$$$0000000D                 0x000000d0   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x000000d0   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x000000d0   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x000000d4   Section       28  startup_lpc11xx.o(.text)
+    .text                                    0x000000f0   Section        0  uidiv_div0.o(.text)
+    .text                                    0x00000130   Section       48  init.o(.text)
+    [Anonymous Symbol]                       0x00000160   Section        0  gpio.o(.text.GPIOInit)
+    __arm_cp.0_0                             0x00000174   Number         4  gpio.o(.text.GPIOInit)
+    [Anonymous Symbol]                       0x00000178   Section        0  gpio.o(.text.GPIOSetDir)
+    [Anonymous Symbol]                       0x000001a0   Section        0  gpio.o(.text.GPIOSetValue)
+    __arm_cp.6_0                             0x000001b4   Number         4  gpio.o(.text.GPIOSetValue)
+    [Anonymous Symbol]                       0x000001b8   Section        0  i2c.o(.text.I2CEngine)
+    __arm_cp.4_3                             0x00000230   Number         4  i2c.o(.text.I2CEngine)
+    [Anonymous Symbol]                       0x00000234   Section        0  i2c.o(.text.I2CInit)
+    __arm_cp.3_0                             0x0000028c   Number         4  i2c.o(.text.I2CInit)
+    __arm_cp.3_1                             0x00000290   Number         4  i2c.o(.text.I2CInit)
+    __arm_cp.3_2                             0x00000294   Number         4  i2c.o(.text.I2CInit)
+    [Anonymous Symbol]                       0x00000298   Section        0  led.o(.text.LED_Off)
+    [Anonymous Symbol]                       0x000002a6   Section        0  led.o(.text.LED_On)
+    [Anonymous Symbol]                       0x000002b4   Section        0  led.o(.text.LeftFrontLight_Off)
+    [Anonymous Symbol]                       0x000002c2   Section        0  led.o(.text.LeftFrontLight_On)
+    [Anonymous Symbol]                       0x000002d0   Section        0  led.o(.text.LeftRearLight_Off)
+    i.__scatterload_null                     0x000002de   Section        2  handlers.o(i.__scatterload_null)
+    [Anonymous Symbol]                       0x000002e0   Section        0  led.o(.text.LeftRearLight_On)
+    [Anonymous Symbol]                       0x000002ee   Section        0  led.o(.text.RightFrontLight_Off)
+    .ARM.__at_0x02FC                         0x000002fc   Section        4  startup_lpc11xx.o(.ARM.__at_0x02FC)
+    [Anonymous Symbol]                       0x00000300   Section        0  i2c.o(.text.I2C_IRQHandler)
+    __arm_cp.0_0                             0x0000040c   Number         4  i2c.o(.text.I2C_IRQHandler)
+    __arm_cp.0_2                             0x00000410   Number         4  i2c.o(.text.I2C_IRQHandler)
+    __arm_cp.0_3                             0x00000414   Number         4  i2c.o(.text.I2C_IRQHandler)
+    __arm_cp.0_5                             0x00000418   Number         4  i2c.o(.text.I2C_IRQHandler)
+    [Anonymous Symbol]                       0x0000041c   Section        0  led.o(.text.LED_Init)
+    [Anonymous Symbol]                       0x0000049c   Section        0  oled.o(.text.OLED_Clear)
+    __arm_cp.3_1                             0x000005a4   Number         4  oled.o(.text.OLED_Clear)
+    __arm_cp.3_2                             0x000005a8   Number         4  oled.o(.text.OLED_Clear)
+    __arm_cp.3_3                             0x000005ac   Number         4  oled.o(.text.OLED_Clear)
+    [Anonymous Symbol]                       0x000005b0   Section        0  oled.o(.text.OLED_Init)
+    __arm_cp.11_4                            0x000005e4   Number         4  oled.o(.text.OLED_Init)
+    __arm_cp.11_7                            0x000005f0   Number         4  oled.o(.text.OLED_Init)
+    __arm_cp.11_1                            0x00000a74   Number         4  oled.o(.text.OLED_Init)
+    __arm_cp.11_2                            0x00000a78   Number         4  oled.o(.text.OLED_Init)
+    [Anonymous Symbol]                       0x00000a7c   Section        0  oled.o(.text.OLED_ShowChar)
+    __arm_cp.4_5                             0x00000ab8   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.4_8                             0x00000ac4   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.4_1                             0x00000f90   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.4_2                             0x00000f94   Number         4  oled.o(.text.OLED_ShowChar)
+    __arm_cp.4_4                             0x00000f98   Number         4  oled.o(.text.OLED_ShowChar)
+    [Anonymous Symbol]                       0x00000f9c   Section        0  oled.o(.text.OLED_ShowString)
+    [Anonymous Symbol]                       0x00000fc8   Section        0  led.o(.text.RightFrontLight_On)
+    [Anonymous Symbol]                       0x00000fd6   Section        0  led.o(.text.RightRearLight_Off)
+    [Anonymous Symbol]                       0x00000fe4   Section        0  led.o(.text.RightRearLight_On)
+    [Anonymous Symbol]                       0x00000ff4   Section        0  delay.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00001004   Section        0  system_lpc11xx.o(.text.SystemInit)
+    __arm_cp.1_0                             0x000010d4   Number         4  system_lpc11xx.o(.text.SystemInit)
+    __arm_cp.1_1                             0x000010d8   Number         4  system_lpc11xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x000010dc   Section        0  timer16.o(.text.TIMER16_0_IRQHandler)
+    __arm_cp.1_0                             0x00001104   Number         4  timer16.o(.text.TIMER16_0_IRQHandler)
+    __arm_cp.1_1                             0x00001108   Number         4  timer16.o(.text.TIMER16_0_IRQHandler)
+    __arm_cp.1_2                             0x0000110c   Number         4  timer16.o(.text.TIMER16_0_IRQHandler)
+    [Anonymous Symbol]                       0x00001110   Section        0  timer16.o(.text.TIMER16_1_IRQHandler)
+    __arm_cp.2_1                             0x00001138   Number         4  timer16.o(.text.TIMER16_1_IRQHandler)
+    __arm_cp.2_2                             0x0000113c   Number         4  timer16.o(.text.TIMER16_1_IRQHandler)
+    [Anonymous Symbol]                       0x00001140   Section        0  uart.o(.text.UARTInit)
+    __arm_cp.1_0                             0x00001218   Number         4  uart.o(.text.UARTInit)
+    __arm_cp.1_1                             0x0000121c   Number         4  uart.o(.text.UARTInit)
+    __arm_cp.1_2                             0x00001220   Number         4  uart.o(.text.UARTInit)
+    __arm_cp.1_3                             0x00001224   Number         4  uart.o(.text.UARTInit)
+    __arm_cp.1_6                             0x00001228   Number         4  uart.o(.text.UARTInit)
+    [Anonymous Symbol]                       0x0000122c   Section        0  delay.o(.text.delay_ms)
+    __arm_cp.1_0                             0x00001250   Number         4  delay.o(.text.delay_ms)
+    [Anonymous Symbol]                       0x00001254   Section        0  timer16.o(.text.enable_timer16)
+    __arm_cp.3_1                             0x00001264   Number         4  timer16.o(.text.enable_timer16)
+    [Anonymous Symbol]                       0x00001268   Section        0  timer32.o(.text.enable_timer32)
+    [Anonymous Symbol]                       0x00001278   Section        0  uart.o(.text.fputc)
+    __arm_cp.4_0                             0x0000129c   Number         4  uart.o(.text.fputc)
+    [Anonymous Symbol]                       0x000012a0   Section        0  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_0                             0x000013dc   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_1                             0x000013e0   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_3                             0x000013e4   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_4                             0x000013e8   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_5                             0x000013ec   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_6                             0x000013f0   Number         4  timer16.o(.text.init_timer16PWM)
+    __arm_cp.7_7                             0x000013f4   Number         4  timer16.o(.text.init_timer16PWM)
+    [Anonymous Symbol]                       0x000013f8   Section        0  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_0                             0x00001524   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_1                             0x00001528   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_2                             0x0000152c   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_3                             0x00001530   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_4                             0x00001534   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_5                             0x00001538   Number         4  timer32.o(.text.init_timer32PWM)
+    __arm_cp.5_6                             0x0000153c   Number         4  timer32.o(.text.init_timer32PWM)
+    [Anonymous Symbol]                       0x00001540   Section        0  motor.o(.text.left_front_motor)
+    [Anonymous Symbol]                       0x0000157e   Section        0  motor.o(.text.left_rear_motor)
+    [Anonymous Symbol]                       0x000015bc   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x000016c0   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x000016c4   Number         4  main.o(.text.main)
+    __arm_cp.0_2                             0x000016c8   Number         4  main.o(.text.main)
+    __arm_cp.0_3                             0x000016cc   Number         4  main.o(.text.main)
+    __arm_cp.0_4                             0x000016d0   Number         4  main.o(.text.main)
+    __arm_cp.0_5                             0x000016d4   Number         4  main.o(.text.main)
+    [Anonymous Symbol]                       0x00001704   Section        0  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_0                             0x000017e4   Number         4  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_1                             0x000017e8   Number         4  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_2                             0x000017ec   Number         4  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_3                             0x000017f0   Number         4  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_4                             0x000017f4   Number         4  motor.o(.text.motor_pwm_init)
+    __arm_cp.0_5                             0x000017f8   Number         4  motor.o(.text.motor_pwm_init)
+    [Anonymous Symbol]                       0x000017fc   Section        0  motor.o(.text.right_front_motor)
+    [Anonymous Symbol]                       0x00001836   Section        0  motor.o(.text.right_rear_motor)
+    [Anonymous Symbol]                       0x00001870   Section        0  timer16.o(.text.setMatch_timer16PWM)
+    __arm_cp.8_0                             0x000018dc   Number         4  timer16.o(.text.setMatch_timer16PWM)
+    __arm_cp.8_1                             0x000018e0   Number         4  timer16.o(.text.setMatch_timer16PWM)
+    [Anonymous Symbol]                       0x000018e4   Section        0  timer32.o(.text.setMatch_timer32PWM)
+    __arm_cp.6_0                             0x00001950   Number         4  timer32.o(.text.setMatch_timer32PWM)
+    __arm_cp.6_1                             0x00001954   Number         4  timer32.o(.text.setMatch_timer32PWM)
+    i.__scatterload_copy                     0x00001958   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_zeroinit                 0x00001966   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.puts                                   0x00001974   Section        0  puts.o(i.puts)
+    LPC_GPIO                                 0x00001f84   Data          16  gpio.o(.rodata.cst16)
+    [Anonymous Symbol]                       0x00001f84   Section        0  gpio.o(.rodata.cst16)
+    .data                                    0x10000000   Section        4  stdout.o(.data)
+    sys_tick_count                           0x100000a8   Data           4  delay.o(.bss.sys_tick_count)
+    [Anonymous Symbol]                       0x100000a8   Section        0  delay.o(.bss.sys_tick_count)
+    STACK                                    0x100000d0   Section      512  startup_lpc11xx.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Data           4  startup_lpc11xx.o(RESET)
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __main                                   0x000000c1   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x000000c1   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x000000c5   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x000000c9   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x000000c9   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x000000c9   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x000000c9   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x000000d1   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x000000d1   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x000000d5   Thumb Code     8  startup_lpc11xx.o(.text)
+    NMI_Handler                              0x000000dd   Thumb Code     2  startup_lpc11xx.o(.text)
+    HardFault_Handler                        0x000000df   Thumb Code     2  startup_lpc11xx.o(.text)
+    SVC_Handler                              0x000000e1   Thumb Code     2  startup_lpc11xx.o(.text)
+    PendSV_Handler                           0x000000e3   Thumb Code     2  startup_lpc11xx.o(.text)
+    ADC_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    BOD_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    CAN_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    FMC_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    PIOINT0_IRQHandler                       0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    PIOINT1_IRQHandler                       0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    PIOINT2_IRQHandler                       0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    PIOINT3_IRQHandler                       0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    SSP0_IRQHandler                          0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    SSP1_IRQHandler                          0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    TIMER32_0_IRQHandler                     0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    TIMER32_1_IRQHandler                     0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    UART_IRQHandler                          0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    USB_FIQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    USB_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    WAKEUP_IRQHandler                        0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    WDT_IRQHandler                           0x000000e7   Thumb Code     0  startup_lpc11xx.o(.text)
+    __aeabi_uidiv                            0x000000f1   Thumb Code     0  uidiv_div0.o(.text)
+    __aeabi_uidivmod                         0x000000f1   Thumb Code    62  uidiv_div0.o(.text)
+    __scatterload                            0x00000131   Thumb Code    38  init.o(.text)
+    __scatterload_rt2                        0x00000131   Thumb Code     0  init.o(.text)
+    GPIOInit                                 0x00000161   Thumb Code    20  gpio.o(.text.GPIOInit)
+    GPIOSetDir                               0x00000179   Thumb Code    40  gpio.o(.text.GPIOSetDir)
+    GPIOSetValue                             0x000001a1   Thumb Code    20  gpio.o(.text.GPIOSetValue)
+    I2CEngine                                0x000001b9   Thumb Code   120  i2c.o(.text.I2CEngine)
+    I2CInit                                  0x00000235   Thumb Code    88  i2c.o(.text.I2CInit)
+    LED_Off                                  0x00000299   Thumb Code    14  led.o(.text.LED_Off)
+    LED_On                                   0x000002a7   Thumb Code    14  led.o(.text.LED_On)
+    LeftFrontLight_Off                       0x000002b5   Thumb Code    14  led.o(.text.LeftFrontLight_Off)
+    LeftFrontLight_On                        0x000002c3   Thumb Code    14  led.o(.text.LeftFrontLight_On)
+    LeftRearLight_Off                        0x000002d1   Thumb Code    14  led.o(.text.LeftRearLight_Off)
+    __scatterload_null                       0x000002df   Thumb Code     2  handlers.o(i.__scatterload_null)
+    LeftRearLight_On                         0x000002e1   Thumb Code    14  led.o(.text.LeftRearLight_On)
+    RightFrontLight_Off                      0x000002ef   Thumb Code    14  led.o(.text.RightFrontLight_Off)
+    I2C_IRQHandler                           0x00000301   Thumb Code   268  i2c.o(.text.I2C_IRQHandler)
+    LED_Init                                 0x0000041d   Thumb Code   128  led.o(.text.LED_Init)
+    OLED_Clear                               0x0000049d   Thumb Code   264  oled.o(.text.OLED_Clear)
+    OLED_Init                                0x000005b1   Thumb Code  1220  oled.o(.text.OLED_Init)
+    OLED_ShowChar                            0x00000a7d   Thumb Code  1300  oled.o(.text.OLED_ShowChar)
+    OLED_ShowString                          0x00000f9d   Thumb Code    44  oled.o(.text.OLED_ShowString)
+    RightFrontLight_On                       0x00000fc9   Thumb Code    14  led.o(.text.RightFrontLight_On)
+    RightRearLight_Off                       0x00000fd7   Thumb Code    14  led.o(.text.RightRearLight_Off)
+    RightRearLight_On                        0x00000fe5   Thumb Code    14  led.o(.text.RightRearLight_On)
+    SysTick_Handler                          0x00000ff5   Thumb Code    16  delay.o(.text.SysTick_Handler)
+    SystemInit                               0x00001005   Thumb Code   208  system_lpc11xx.o(.text.SystemInit)
+    TIMER16_0_IRQHandler                     0x000010dd   Thumb Code    40  timer16.o(.text.TIMER16_0_IRQHandler)
+    TIMER16_1_IRQHandler                     0x00001111   Thumb Code    40  timer16.o(.text.TIMER16_1_IRQHandler)
+    UARTInit                                 0x00001141   Thumb Code   216  uart.o(.text.UARTInit)
+    delay_ms                                 0x0000122d   Thumb Code    36  delay.o(.text.delay_ms)
+    enable_timer16                           0x00001255   Thumb Code    16  timer16.o(.text.enable_timer16)
+    enable_timer32                           0x00001269   Thumb Code    16  timer32.o(.text.enable_timer32)
+    fputc                                    0x00001279   Thumb Code    36  uart.o(.text.fputc)
+    init_timer16PWM                          0x000012a1   Thumb Code   316  timer16.o(.text.init_timer16PWM)
+    init_timer32PWM                          0x000013f9   Thumb Code   300  timer32.o(.text.init_timer32PWM)
+    left_front_motor                         0x00001541   Thumb Code    62  motor.o(.text.left_front_motor)
+    left_rear_motor                          0x0000157f   Thumb Code    60  motor.o(.text.left_rear_motor)
+    main                                     0x000015bd   Thumb Code   260  main.o(.text.main)
+    motor_pwm_init                           0x00001705   Thumb Code   224  motor.o(.text.motor_pwm_init)
+    right_front_motor                        0x000017fd   Thumb Code    58  motor.o(.text.right_front_motor)
+    right_rear_motor                         0x00001837   Thumb Code    58  motor.o(.text.right_rear_motor)
+    setMatch_timer16PWM                      0x00001871   Thumb Code   108  timer16.o(.text.setMatch_timer16PWM)
+    setMatch_timer32PWM                      0x000018e5   Thumb Code   108  timer32.o(.text.setMatch_timer32PWM)
+    __scatterload_copy                       0x00001959   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_zeroinit                   0x00001967   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    puts                                     0x00001975   Thumb Code    28  puts.o(i.puts)
+    OLED_F8x16                               0x00001994   Data        1520  oled.o(.rodata.OLED_F8x16)
+    Region$$Table$$Base                      0x00001f94   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001fb4   Number         0  anon$$obj.o(Region$$Table)
+    __stdout                                 0x10000000   Data           4  stdout.o(.data)
+    SystemCoreClock                          0x10000004   Data           4  system_lpc11xx.o(.data.SystemCoreClock)
+    UARTTxEmpty                              0x10000008   Data           1  uart.o(.data.UARTTxEmpty)
+    I2CMasterBuffer                          0x10000010   Data          64  i2c.o(.bss.I2CMasterBuffer)
+    I2CMasterState                           0x10000050   Data           4  i2c.o(.bss.I2CMasterState)
+    I2CReadLength                            0x10000054   Data           4  i2c.o(.bss.I2CReadLength)
+    I2CSlaveBuffer                           0x10000058   Data          64  i2c.o(.bss.I2CSlaveBuffer)
+    I2CWriteLength                           0x10000098   Data           4  i2c.o(.bss.I2CWriteLength)
+    RdIndex                                  0x1000009c   Data           4  i2c.o(.bss.RdIndex)
+    UARTCount                                0x100000a0   Data           4  uart.o(.bss.UARTCount)
+    WrIndex                                  0x100000a4   Data           4  i2c.o(.bss.WrIndex)
+    timeout                                  0x100000ac   Data           4  i2c.o(.bss.timeout)
+    timer16_0_capture                        0x100000b0   Data           4  timer16.o(.bss.timer16_0_capture)
+    timer16_0_counter                        0x100000b4   Data           4  timer16.o(.bss.timer16_0_counter)
+    timer16_0_period                         0x100000b8   Data           4  timer16.o(.bss.timer16_0_period)
+    timer16_1_capture                        0x100000bc   Data           4  timer16.o(.bss.timer16_1_capture)
+    timer16_1_counter                        0x100000c0   Data           4  timer16.o(.bss.timer16_1_counter)
+    timer16_1_period                         0x100000c4   Data           4  timer16.o(.bss.timer16_1_period)
+    timer32_0_period                         0x100000c8   Data           4  timer32.o(.bss.timer32_0_period)
+    timer32_1_period                         0x100000cc   Data           4  timer32.o(.bss.timer32_1_period)
+    __initial_sp                             0x100002d0   Data           0  startup_lpc11xx.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x000000c1
+
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001fc8, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001fb4, Max: 0x00008000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x000000c0   Data   RO          258    RESET               startup_lpc11xx.o
+    0x000000c0   0x000000c0   0x00000000   Code   RO          281  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO          294    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO          297    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO          299    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO          301    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO          302    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO          304    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO          306    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO          295    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d4   0x000000d4   0x0000001c   Code   RO          260    .text               startup_lpc11xx.o
+    0x000000f0   0x000000f0   0x0000003e   Code   RO          313    .text               mc_p.l(uidiv_div0.o)
+    0x0000012e   0x0000012e   0x00000002   PAD
+    0x00000130   0x00000130   0x00000030   Code   RO          319    .text               mc_p.l(init.o)
+    0x00000160   0x00000160   0x00000018   Code   RO           22    .text.GPIOInit      gpio.o
+    0x00000178   0x00000178   0x00000028   Code   RO           36    .text.GPIOSetDir    gpio.o
+    0x000001a0   0x000001a0   0x00000018   Code   RO           34    .text.GPIOSetValue  gpio.o
+    0x000001b8   0x000001b8   0x0000007c   Code   RO           57    .text.I2CEngine     i2c.o
+    0x00000234   0x00000234   0x00000064   Code   RO           55    .text.I2CInit       i2c.o
+    0x00000298   0x00000298   0x0000000e   Code   RO          179    .text.LED_Off       led.o
+    0x000002a6   0x000002a6   0x0000000e   Code   RO          189    .text.LED_On        led.o
+    0x000002b4   0x000002b4   0x0000000e   Code   RO          187    .text.LeftFrontLight_Off  led.o
+    0x000002c2   0x000002c2   0x0000000e   Code   RO          197    .text.LeftFrontLight_On  led.o
+    0x000002d0   0x000002d0   0x0000000e   Code   RO          183    .text.LeftRearLight_Off  led.o
+    0x000002de   0x000002de   0x00000002   Code   RO          324    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000002e0   0x000002e0   0x0000000e   Code   RO          193    .text.LeftRearLight_On  led.o
+    0x000002ee   0x000002ee   0x0000000e   Code   RO          185    .text.RightFrontLight_Off  led.o
+    0x000002fc   0x000002fc   0x00000004   Code   RO          259    .ARM.__at_0x02FC    startup_lpc11xx.o
+    0x00000300   0x00000300   0x0000011c   Code   RO           49    .text.I2C_IRQHandler  i2c.o
+    0x0000041c   0x0000041c   0x00000080   Code   RO          177    .text.LED_Init      led.o
+    0x0000049c   0x0000049c   0x00000114   Code   RO          230    .text.OLED_Clear    oled.o
+    0x000005b0   0x000005b0   0x000004cc   Code   RO          246    .text.OLED_Init     oled.o
+    0x00000a7c   0x00000a7c   0x00000520   Code   RO          232    .text.OLED_ShowChar  oled.o
+    0x00000f9c   0x00000f9c   0x0000002c   Code   RO          234    .text.OLED_ShowString  oled.o
+    0x00000fc8   0x00000fc8   0x0000000e   Code   RO          195    .text.RightFrontLight_On  led.o
+    0x00000fd6   0x00000fd6   0x0000000e   Code   RO          181    .text.RightRearLight_Off  led.o
+    0x00000fe4   0x00000fe4   0x0000000e   Code   RO          191    .text.RightRearLight_On  led.o
+    0x00000ff2   0x00000ff2   0x00000002   PAD
+    0x00000ff4   0x00000ff4   0x00000010   Code   RO          164    .text.SysTick_Handler  delay.o
+    0x00001004   0x00001004   0x000000d8   Code   RO          271    .text.SystemInit    system_lpc11xx.o
+    0x000010dc   0x000010dc   0x00000034   Code   RO           85    .text.TIMER16_0_IRQHandler  timer16.o
+    0x00001110   0x00001110   0x00000030   Code   RO           87    .text.TIMER16_1_IRQHandler  timer16.o
+    0x00001140   0x00001140   0x000000ec   Code   RO          143    .text.UARTInit      uart.o
+    0x0000122c   0x0000122c   0x00000028   Code   RO          166    .text.delay_ms      delay.o
+    0x00001254   0x00001254   0x00000014   Code   RO           89    .text.enable_timer16  timer16.o
+    0x00001268   0x00001268   0x00000010   Code   RO          117    .text.enable_timer32  timer32.o
+    0x00001278   0x00001278   0x00000028   Code   RO          149    .text.fputc         uart.o
+    0x000012a0   0x000012a0   0x00000158   Code   RO           97    .text.init_timer16PWM  timer16.o
+    0x000013f8   0x000013f8   0x00000148   Code   RO          125    .text.init_timer32PWM  timer32.o
+    0x00001540   0x00001540   0x0000003e   Code   RO          212    .text.left_front_motor  motor.o
+    0x0000157e   0x0000157e   0x0000003c   Code   RO          210    .text.left_rear_motor  motor.o
+    0x000015ba   0x000015ba   0x00000002   PAD
+    0x000015bc   0x000015bc   0x00000148   Code   RO            2    .text.main          main.o
+    0x00001704   0x00001704   0x000000f8   Code   RO          206    .text.motor_pwm_init  motor.o
+    0x000017fc   0x000017fc   0x0000003a   Code   RO          214    .text.right_front_motor  motor.o
+    0x00001836   0x00001836   0x0000003a   Code   RO          208    .text.right_rear_motor  motor.o
+    0x00001870   0x00001870   0x00000074   Code   RO           99    .text.setMatch_timer16PWM  timer16.o
+    0x000018e4   0x000018e4   0x00000074   Code   RO          127    .text.setMatch_timer32PWM  timer32.o
+    0x00001958   0x00001958   0x0000000e   Code   RO          323    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00001966   0x00001966   0x0000000e   Code   RO          325    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00001974   0x00001974   0x00000020   Code   RO          284    i.puts              mc_p.l(puts.o)
+    0x00001994   0x00001994   0x000005f0   Data   RO          248    .rodata.OLED_F8x16  oled.o
+    0x00001f84   0x00001f84   0x00000010   Data   RO           40    .rodata.cst16       gpio.o
+    0x00001f94   0x00001f94   0x00000020   Data   RO          322    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x10000000, Load base: 0x00001fb8, Size: 0x000002d0, Max: 0x00002000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10000000   0x00001fb8   0x00000004   Data   RW          308    .data               mc_p.l(stdout.o)
+    0x10000004   0x00001fbc   0x00000004   Data   RW          273    .data.SystemCoreClock  system_lpc11xx.o
+    0x10000008   0x00001fc0   0x00000001   Data   RW          151    .data.UARTTxEmpty   uart.o
+    0x10000009   0x00001fc1   0x00000007   PAD
+    0x10000010        -       0x00000040   Zero   RW           65    .bss.I2CMasterBuffer  i2c.o
+    0x10000050        -       0x00000004   Zero   RW           59    .bss.I2CMasterState  i2c.o
+    0x10000054        -       0x00000004   Zero   RW           67    .bss.I2CReadLength  i2c.o
+    0x10000058        -       0x00000040   Zero   RW           68    .bss.I2CSlaveBuffer  i2c.o
+    0x10000098        -       0x00000004   Zero   RW           66    .bss.I2CWriteLength  i2c.o
+    0x1000009c        -       0x00000004   Zero   RW           63    .bss.RdIndex        i2c.o
+    0x100000a0        -       0x00000004   Zero   RW          152    .bss.UARTCount      uart.o
+    0x100000a4        -       0x00000004   Zero   RW           64    .bss.WrIndex        i2c.o
+    0x100000a8        -       0x00000004   Zero   RW          168    .bss.sys_tick_count  delay.o
+    0x100000ac        -       0x00000004   Zero   RW           61    .bss.timeout        i2c.o
+    0x100000b0        -       0x00000004   Zero   RW          103    .bss.timer16_0_capture  timer16.o
+    0x100000b4        -       0x00000004   Zero   RW          101    .bss.timer16_0_counter  timer16.o
+    0x100000b8        -       0x00000004   Zero   RW          105    .bss.timer16_0_period  timer16.o
+    0x100000bc        -       0x00000004   Zero   RW          104    .bss.timer16_1_capture  timer16.o
+    0x100000c0        -       0x00000004   Zero   RW          102    .bss.timer16_1_counter  timer16.o
+    0x100000c4        -       0x00000004   Zero   RW          106    .bss.timer16_1_period  timer16.o
+    0x100000c8        -       0x00000004   Zero   RW          129    .bss.timer32_0_period  timer32.o
+    0x100000cc        -       0x00000004   Zero   RW          132    .bss.timer32_1_period  timer32.o
+    0x100000d0        -       0x00000200   Zero   RW          256    STACK               startup_lpc11xx.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+        56          4          0          0          4        759   delay.o
+        88          8         16          0          0       6579   gpio.o
+       508         44          0          0        152       7001   i2c.o
+       268          0          0          0          0       1497   led.o
+       328         68          0          0          0       4248   main.o
+       486         24          0          0          0       3228   motor.o
+      2860        108       1520          0          0      11403   oled.o
+        32         12        192          0        512        876   startup_lpc11xx.o
+       216          8          0          4          0       2829   system_lpc11xx.o
+       580         92          0          0         24       8589   timer16.o
+       460         68          0          0          8       6314   timer32.o
+       276         24          0          1          4       7415   uart.o
+
+    ----------------------------------------------------------------------
+      6162        460       1760          8        708      60738   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         4          0          0          3          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        48         10          0          0          0         68   init.o
+        32          4          0          0          0         68   puts.o
+         0          0          0          4          0          0   stdout.o
+        62          0          0          0          0         72   uidiv_div0.o
+
+    ----------------------------------------------------------------------
+       194         22          0          4          0        208   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       192         22          0          4          0        208   mc_p.l
+
+    ----------------------------------------------------------------------
+       194         22          0          4          0        208   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      6356        482       1760         12        708      60854   Grand Totals
+      6356        482       1760         12        708      60854   ELF Image Totals
+      6356        482       1760         12          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 8116 (   7.93kB)
+    Total RW  Size (RW Data + ZI Data)               720 (   0.70kB)
+    Total ROM Size (Code + RO Data + RW Data)       8128 (   7.94kB)
+
+==============================================================================
+
