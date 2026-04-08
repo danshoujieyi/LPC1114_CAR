@@ -12,18 +12,12 @@
 **实物焊接图**
 ![小车](images/焊接与实物组装.png)
 **满分演示视频**
+### 协同接力演示视频
 <div align="center">
-  <h3>🚗 小车协同接力演示视频</h3>
-  <video 
-    src="https://github.com/danshoujieyi/LPC1114_CAR/raw/main/video/video.mp4" 
-    controls 
-    width="800"
-    muted
-  >
-    您的浏览器不支持HTML5视频播放，请点击查看：
-    <a href="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4" target="_blank">视频下载链接</a>
-  </video>
-  <p>点击播放按钮查看小车协同接力演示效果</p>
+<a href="https://raw.githubusercontent.com/danshoujieyi/LPC1114_CAR/main/video/video.mp4" target="_blank">
+<img src="https://raw.githubusercontent.com/danshoujieyi/LPC1114_CAR/main/images/video.png" width="700" alt="演示视频">
+</a>
+<p>👆 点击图片播放视频</p>
 </div>
 
 ## 前言
