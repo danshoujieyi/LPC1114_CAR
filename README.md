@@ -1,4 +1,26 @@
 # LPC1114_CAR
+## 更新 26-4-8
+针对使用LPC1114制作智能巡线小车，以及使用多车协同完成同时出车库、进车库接力赛的设计，更新了小车PCB以及多辆小车协同控制与通信代码。
+
+**LPC1114CAR_CourseDesign**文件夹中包含四辆小车代码，其中**LPC1114CAR_RTThread**为第一辆小车代码。
+
+**原理图**
+![小车原理图](images/LPC1114小车原理图.png)
+**PCB图**
+![小车PCB1](images/PCB1.png)
+![小车PCB2](images/PCB2.png)
+
+**满分演示视频**
+<div align="center">
+  <video src="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4?raw=true" 
+         controls 
+         width="600" 
+         muted>
+    您的浏览器不支持HTML5视频播放
+  </video>
+  <p>协同接力演示视频</p>
+</div>
+
 ## 前言
 **让你的NXP LPC1114单片机飞起来！像开发STM32一样简单！**
 

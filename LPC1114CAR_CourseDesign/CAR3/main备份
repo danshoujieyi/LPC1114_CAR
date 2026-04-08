@@ -1,0 +1,260 @@
+#include "LPC11xx.h"
+#include "Delay.h"
+
+#include "driver_config.h"
+#include "target_config.h"
+#include "timer32.h"
+#include "timer16.h"
+#include "gpio.h"
+#include "LED.h"
+#include "Motor.h"
+#include "ssp.h"
+#include "NRF24L01.h"
+#include "SPI1.h"
+#include "UARTPrintf.h"
+#include "stdio.h"
+#include "OLED.h"
+#include "Track.h"
+#include "uart.h"
+#include "i2c.h"
+#include "PID.h"
+#include "rtthread.h"
+#include "Key.h"
+
+extern uint8_t NRF24L01_TxAddress[];
+extern uint8_t NRF24L01_TxPacket[];
+extern uint8_t NRF24L01_RxAddress[];
+extern uint8_t NRF24L01_RxPacket[];
+uint8_t SendFlag;								//发送标志位
+uint8_t SendSuccessCount, SendFailedCount;		//发送成功计次，发送失败计次
+uint8_t ReceiveFlag;							//接收标志位
+uint8_t ReceiveSuccessCount, ReceiveFailedCount;   //接收成功计次，接收失败计次
+
+
+
+#define BASE_SPEED        10.0f   // 直道基础速度
+#define MAX_SPEED        10.0f   // 直道基础速度
+
+// 全局变量：循迹状态、历史备份及错误计数
+extern volatile float track_status[1];               // 当前循迹偏差值
+extern volatile float track_status_backup[1][20];    // 循迹状态历史备份（20个历史值）
+extern volatile uint32_t track_status_worse;         // 循迹异常状态计数器
+extern volatile _track_state track_state;            // 循迹状态联合体
+
+// 全局PID句柄（用于循迹转向控制）
+PID_HandleTypeDef track_pid = {0};
+volatile float move_flag = 0;
+volatile int left_speed = 0;
+volatile int right_speed = 0;
+void track_move_control(void) {
+    move_flag = track_status[0];
+	    // 限幅处理：将move_flag限制在[-4, 4]
+    if (move_flag > 4.0f) {
+        move_flag = 4.0f;  // 超过上限，强制设为4
+    } else if (move_flag < -4.0f) {
+        move_flag =  -4.0f;  // 低于下限，强制设为-4
+    }
+	    // 2. 计算PID输出（转向控制量）
+    pid_calculate(&track_pid, move_flag);
+	    // 3. 根据PID输出计算左右电机速度（输出越大，转向越急）
+    // 左电机速度 = 基础速度 - 转向量（转向量为正：左转，左慢右快）
+    // 右电机速度 = 基础速度 + 转向量（转向量为负：右转，左快右慢）
+	if (move_flag == 0) {
+		track_pid.integral = 0;
+		track_pid.output = 0;
+	}
+     left_speed = (int)(BASE_SPEED - track_pid.output);
+     right_speed = (int)(BASE_SPEED + track_pid.output);
+	
+//	    // 4. 限制电机速度下限（避免低于最小转向速度）
+//    if (left_speed > TURN_SPEED) {
+//        left_speed = TURN_SPEED;
+//    }
+//    if (right_speed > TURN_SPEED) {
+//        right_speed = TURN_SPEED;
+//    }
+
+    // 5. 控制电机转动
+//    left_motor(left_speed);
+//    right_motor(right_speed);
+	
+//	int flag = (int)move_flag;  // 将float转为int，用于switch判断（假设move_flag为整数型float）
+
+//    switch (flag) {
+//        case 0:  // 直行
+//            left_motor(BASE_SPEED);
+//            right_motor(BASE_SPEED);
+//            break;
+//        
+//        case 1:  // 稍微左转
+//            left_motor(BASE_SPEED - TURN_SLIGHT);
+//            right_motor(BASE_SPEED + TURN_SLIGHT);
+//            break;
+//        
+//        case 2:  // 普通左转
+//            left_motor(BASE_SPEED - TURN_NORMAL);
+//            right_motor(BASE_SPEED + TURN_NORMAL);
+//            break;
+//        
+//        case 3:  // 快速左转
+//            left_motor(BASE_SPEED - TURN_FAST);
+//            right_motor(BASE_SPEED + TURN_FAST);
+//            break;
+//        
+//        case 4:  // 急速左转
+//            left_motor(BASE_SPEED - TURN_URGENT);
+//            right_motor(BASE_SPEED + TURN_URGENT);
+//            break;
+//        
+//        case -1:  // 稍微右转
+//            left_motor(BASE_SPEED + TURN_SLIGHT);
+//            right_motor(BASE_SPEED - TURN_SLIGHT);
+//            break;
+//        
+//        case -2:  // 普通右转
+//            left_motor(BASE_SPEED + TURN_NORMAL);
+//            right_motor(BASE_SPEED - TURN_NORMAL);
+//            break;
+//        
+//        case -3:  // 快速右转
+//            left_motor(BASE_SPEED + TURN_FAST);
+//            right_motor(BASE_SPEED - TURN_FAST);
+//            break;
+//        
+//        case -4:  // 急速右转
+//            left_motor(BASE_SPEED + TURN_URGENT);
+//            right_motor(BASE_SPEED - TURN_URGENT);
+//            break;
+//        
+//        default:  // 异常值处理（默认直行）
+//            left_motor(BASE_SPEED);
+//            right_motor(BASE_SPEED);
+//            break;
+//    }
+	
+}
+
+extern volatile uint8_t key_flag;
+
+int main()
+{
+//    SystemInit();   
+//	SysTick_Config(SystemCoreClock/1000);  /* 定时器1ms定时一次 */
+//	LPC_SYSCON->SYSAHBCLKCTRL |= (1UL << 6) | (1UL << 8) | (1UL << 9) | (1UL << 10) | (1UL << 16); 
+    LED_Init();
+	UARTInit(115200);
+	KEY_IRQ_Init();
+	track_init();
+	OLED_Init();       // 初始化OLED显示屏
+    OLED_Clear();      // 清除OLED屏幕内容
+	
+	
+	/* OLED显示静态字符串 */
+	OLED_ShowString(1, 1, "T:000-000-0");	//格式为：T:发送成功计次-发送失败计次-发送标志位
+	OLED_ShowString(3, 1, "R:000-000-0");	//格式为：R:接收成功计次-接收失败计次-接收标志位
+
+//    OLED_ShowString(1, 4, "LiuJiajun ! ");    // 在第1行第4列显示字符串"LiuJiajun !"
+	pid_init(&track_pid);
+	motor_pwm_init();
+	
+	NRF24L01_Init();    //NRF24L01初始化
+		/* 初始化发送数据 */
+	NRF24L01_TxPacket[0] = 0x00;
+	NRF24L01_TxPacket[1] = 0x01;
+	NRF24L01_TxPacket[2] = 0x02;
+	NRF24L01_TxPacket[3] = 0x03;
+
+//	left_motor(MOTOR_FORWARD , 10);
+//	right_motor(MOTOR_FORWARD , 10);
+
+//	
+//	    // 初始化SSP（SPI）接口
+//    drv_spi_init();  // 假设该函数已实现SSP的初始化配置（波特率、模式等）
+//    // 初始化NRF24L01（发送模式）
+//    NRF24L01_Gpio_Init_transmit();
+//    RF24L01_Init();
+//    RF24L01_Set_Mode(MODE_TX);  // 设置为发送模式
+//    NRF24L01_check();  // 检查NRF24L01是否连接正常
+
+	while (1)                               
+	{
+		
+		if (key_flag)				//按键按下
+		{
+			key_flag = 0;
+			/* 变换测试数据，便于观察实验现象 */
+			NRF24L01_TxPacket[0]++;
+			NRF24L01_TxPacket[1]++;
+			NRF24L01_TxPacket[2]++;
+			NRF24L01_TxPacket[3]++;
+			
+			/* 调用NRF24L01_Send函数，发送数据，同时返回发送标志位 */
+			SendFlag = NRF24L01_Send();
+			
+			if (SendFlag == 1){			//发送标志位为1，表示发送成功
+				SendSuccessCount++;	//发送成功计次变量自增
+			}
+			else{						//发送标志位不为1，即2/3/4，表示发送不成功
+				SendFailedCount++;	//发送失败计次变量自增
+			}
+			
+			OLED_ShowNum(1, 3, SendSuccessCount, 3);	//显示发送成功次数
+			OLED_ShowNum(1, 7, SendFailedCount, 3);		//显示发送失败次数
+			OLED_ShowNum(1, 11, SendFlag, 1);			//显示最近一次的发送标志位
+			
+			/* OLED显示发送数据 */
+			OLED_ShowHexNum(2, 1, NRF24L01_TxPacket[0], 2);
+			OLED_ShowHexNum(2, 4, NRF24L01_TxPacket[1], 2);
+			OLED_ShowHexNum(2, 7, NRF24L01_TxPacket[2], 2);
+			OLED_ShowHexNum(2, 10, NRF24L01_TxPacket[3], 2);
+			
+			/* TX字符串闪烁一次，表明发送了一次数据 */
+			OLED_ShowString(1, 15, "TX");
+			rt_thread_mdelay(100);
+			OLED_ShowString(1, 15, "  ");
+			
+		}
+		
+		/* 调用NRF24L01_Receive函数，接收数据，同时返回接收标志位 */
+		ReceiveFlag = NRF24L01_Receive();
+		
+		if (ReceiveFlag)				//接收标志位不为0，表示收到了一个数据包
+		{
+			if (ReceiveFlag == 1){		//接收标志位为1，表示接收成功
+				ReceiveSuccessCount++;	//接收成功计次变量自增
+			}
+			else{		//接收标志位不为0也不为1，即2/3，表示此次接收产生了错误
+				ReceiveFailedCount++;	//接收失败计次变量自增
+			}
+			
+			OLED_ShowNum(3, 3, ReceiveSuccessCount, 3);	//显示接收成功次数
+			OLED_ShowNum(3, 7, ReceiveFailedCount, 3);	//显示接收失败次数
+			OLED_ShowNum(3, 11, ReceiveFlag, 1);		//显示最近一次的接收标志位
+			
+			/* OLED显示接收数据 */
+			OLED_ShowHexNum(4, 1, NRF24L01_RxPacket[0], 2);
+			OLED_ShowHexNum(4, 4, NRF24L01_RxPacket[1], 2);
+			OLED_ShowHexNum(4, 7, NRF24L01_RxPacket[2], 2);
+			OLED_ShowHexNum(4, 10, NRF24L01_RxPacket[3], 2);
+			
+			/* RX字符串闪烁一次，表明接收到了一次数据 */
+			OLED_ShowString(3, 15, "RX");
+			rt_thread_mdelay(100);
+			OLED_ShowString(3, 15, "  ");
+		}
+		
+//           
+		printf("Successn\r\n");
+//		        // 发送数据
+//        uint8_t status = NRF24L01_TxPacket(tx_data, tx_len);
+        
+		track_check();
+		track_move_control();
+//		LED_Toggle();
+		rt_thread_mdelay(10);
+
+	}
+
+}
+
+
