@@ -9,16 +9,21 @@
 **PCB图**
 ![小车PCB1](images/PCB1.png)
 ![小车PCB2](images/PCB2.png)
-
+**实物焊接图**
+![小车](images/焊接与实物组装.png)
 **满分演示视频**
 <div align="center">
-  <video src="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4?raw=true" 
-         controls 
-         width="600" 
-         muted>
-    您的浏览器不支持HTML5视频播放
+  <h3>🚗 小车协同接力演示视频</h3>
+  <video 
+    src="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4?raw=true" 
+    controls 
+    width="800"
+    muted
+    preload="metadata"
+  >
+    您的浏览器不支持HTML5视频播放，请<a href="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4?raw=true" target="_blank">点击此处</a>查看视频。
   </video>
-  <p>协同接力演示视频</p>
+  <p>点击播放按钮查看小车协同接力演示效果</p>
 </div>
 
 ## 前言
