@@ -15,13 +15,13 @@
 <div align="center">
   <h3>🚗 小车协同接力演示视频</h3>
   <video 
-    src="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4?raw=true" 
+    src="https://github.com/danshoujieyi/LPC1114_CAR/raw/main/video/video.mp4" 
     controls 
     width="800"
     muted
-    preload="metadata"
   >
-    您的浏览器不支持HTML5视频播放，请<a href="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4?raw=true" target="_blank">点击此处</a>查看视频。
+    您的浏览器不支持HTML5视频播放，请点击查看：
+    <a href="https://github.com/danshoujieyi/LPC1114_CAR/blob/main/video/video.mp4" target="_blank">视频下载链接</a>
   </video>
   <p>点击播放按钮查看小车协同接力演示效果</p>
 </div>
